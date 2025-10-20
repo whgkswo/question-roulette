@@ -27,11 +27,16 @@ public class Interviewer {
         Collections.shuffle(questions);
 
         // 큐에 담고 리턴
-        return new LinkedList<>(questions.subList(0, questionSize));
+        Queue<String> questionQueue = new LinkedList<>();
+
+        questionQueue.add("간단하게 자기소개 부탁드립니다.");
+        questionQueue.addAll(questions.subList(0, questionSize));
+        return questionQueue;
     }
 
     public void startInterview() {
         Queue<String> questions = setQuestions();
+
         int totalQuestions = questions.size();
         int currentNumber = 1;
 
